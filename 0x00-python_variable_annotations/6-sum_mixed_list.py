@@ -2,6 +2,9 @@
 """Module for adding elements in a list."""
 
 
-def sum_mixed_list(mxd_lst: list[float | int]) -> float:
+from typing import List, Union
+
+
+def sum_mixed_list(mxd_lst: List[Union[float, int]]) -> float:
     """Sums all the elements in the list and returns a float."""
     return sum(mxd_lst)

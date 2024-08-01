@@ -2,7 +2,8 @@
 """Module that shows the annotation of an object in python. """
 
 
-from collections.abc import Iterable, Sequence
+from typing import List, Sequence, Iterable, Tuple
 
-def element_length(lst: Iterable[Sequence]) -> list[tuple[Sequence, int]]:
+
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     return [(i, len(i)) for i in lst]
