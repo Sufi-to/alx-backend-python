@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""""""
+"""Module for a key value argument and returns value sqaured along
+the key in tuple."""
 
 from typing import Tuple, Union
 
