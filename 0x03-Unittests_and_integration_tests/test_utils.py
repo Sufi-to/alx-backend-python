@@ -3,7 +3,7 @@
 
 import unittest
 from parameterized import parameterized
-access_map = __import__('utils').access_nested_map
+from utils import access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -16,5 +16,15 @@ class TestAccessNestedMap(unittest.TestCase):
         ])
     def test_access_nested_map(self, nested_map, path, expected):
         """Tests the access_nested_map function"""
-        res = access_map(nested_map, path)
+        res = access_nested_map(nested_map, path)
         self.assertEqual(res, expected)
+
+    @parameterized.expand([
+        ({}, ("a",), "a"),
+        ({"a": 1}, ("a", "b"), "b")
+        ])
+    def test_access_nested_map_exception(self, nested_map, path, expected):
+        """Context manager to test that a KeyError is raised"""
+        with self.assertRaises(KeyError) as E:
+            access_nested_map(nested_map, path)
+        self.assertEqual(f"KeyError('{expected}')", repr(E.exception))
