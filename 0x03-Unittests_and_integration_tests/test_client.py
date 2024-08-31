@@ -35,7 +35,7 @@ class TestGithubOrgClient(TestCase):
 
     @patch('client.get_json')
     def test_public_repos(self, mock_json):
-        """"""
+        """Tests the repo"""
         payload = [{"name": "Google"}, {"name": "Twitter"}]
         mock_json.return_value = payload
 
